@@ -9,7 +9,11 @@ import java.util.Set;
 import optimizer.lbfgs.LBFGS;
 import optimizer.lbfgs.LBFGS.ExceptionWithIflag;
 
-public class L2R_CE_C implements LR {
+/**
+ * 对分类问题采用one-vs-all的方式训练N-1个二分类模型,预测的时候取分值最大的一个类别
+ * 最为最终的分类结果 
+ */
+public class L2R_CE_C implements Classifier {
 
 	@Override
 	public Model train(FeatureNode[][] nodes, double[] y, Parameter param)

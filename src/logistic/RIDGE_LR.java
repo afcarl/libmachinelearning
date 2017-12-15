@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import optimizer.lbfgs.LBFGS;
 
-public class RIDGE_LR implements LR {
+public class RIDGE_LR implements Classifier {
 
 	@Override
 	public Model train(FeatureNode[][] nodes, double[] y, Parameter param)

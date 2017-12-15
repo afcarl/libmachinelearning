@@ -9,7 +9,7 @@ import java.util.Set;
 import optimizer.lbfgs.LBFGS;
 import optimizer.lbfgs.LBFGS.ExceptionWithIflag;
 
-public class L1R_CE_C implements LR {
+public class L1R_CE_C implements Classifier {
 
 	@Override
 	public Model train(FeatureNode[][] nodes, double[] y, Parameter param)
