@@ -1,7 +1,5 @@
 package logistic;
 
-import svm.SVM_PRI;
-
 public class Classification {
 	public static Classifier getInstance(Parameter param) {
 		if (param.type == SolverType.MSE_LR)
@@ -12,8 +10,6 @@ public class Classification {
 			return new L2R_CE_C();
 		if (param.type == SolverType.L1R_CE_C)
 			return new L1R_CE_C();
-		if (param.type == SolverType.SVM_PRI)
-			return new SVM_PRI();
 		return null;
 	}
 
