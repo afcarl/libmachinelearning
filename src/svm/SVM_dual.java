@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import optimizer.smo.SVM;
+import optimizer.smo.SMO;
 
 /**
  * SVM对偶问题,使用SMO算法求解,没有使用QP方法,因为对内存和时间要求较高
@@ -49,6 +49,7 @@ public class SVM_dual {
 				int[] suby = new int[subYList.size()];
 				for (int m = 0; m < subYList.size(); m++)
 					suby[m] = subYList.get(m);
+				System.out.println("train binary svm, number is : " + index);
 				SVMBinaryModel subModel = train_one(subx, suby, parameter);
 				subModel.setpLabel(y1);
 				subModel.setnLabel(y2);
@@ -61,7 +62,7 @@ public class SVM_dual {
 	public int predict(SVMModel model, double[] x) {
 		Map<Integer, Integer> voteMap = new HashMap<Integer, Integer>();
 		for (SVMBinaryModel subModel : model.modelList) {
-			double p = SVM.predictOneStatic(subModel, x);
+			double p = SMO.predictOneStatic(subModel, x);
 			int label = subModel.getnLabel();
 			if (p > 0)
 				label = subModel.getpLabel();
@@ -106,7 +107,7 @@ public class SVM_dual {
 //	}
 	
 	private SVMBinaryModel train_one(double[][] x, int[] y, SVMParameter parameter) {
-		SVM svm = new SVM(x, y, parameter);
+		SMO svm = new SMO(x, y, parameter);
 		svm.train();
 		SVMBinaryModel subModel = new SVMBinaryModel(svm.getB(), svm.getAlph(),
 				svm.getTrainSamples(), svm.getTrainLabels()); 

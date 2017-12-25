@@ -19,7 +19,7 @@ public class LRClassifcationExample {
 	private String f_model = "D://projectdata//libself//mnist.scale.model";
 
 	/**
-	 * precision:0.8343313373253493
+	 * precision:0.9186
 	 * @throws Exception
 	 */
 	public void run() throws Exception {
@@ -64,8 +64,6 @@ public class LRClassifcationExample {
 			}
 			nodeArrayList.add(nodeArray);
 			yList.add(Double.valueOf(items[0]));
-			if (c++ > 1000)
-				break;
 		}
 		br.close();
 		

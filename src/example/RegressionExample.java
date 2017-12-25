@@ -6,12 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import regression.Regression;
+import regression.Regressioner;
 import common.FeatureNode;
 import common.Parameter;
 import common.SolverType;
-import logistic.Classification;
-import logistic.Classifier;
-import logistic.Model;
 
 public class RegressionExample {
 	private String f_train = "D://projectdata//libself//abalone.txt.train";
@@ -32,8 +31,8 @@ public class RegressionExample {
 		param.n = 10;
 		//使用RIDGE_LR的时候,eps设置过小会报错,很可能跟LBFGS的代码实现有关,其只是提升梯度变化过小,应该提前结束训练
 		param.eps = 0.001;
-		Classifier lr = Classification.getInstance(param);
-		Model model = lr.train(x, y, param);
+		Regressioner lr = Regression.getInstance(param);
+		regression.Model model = lr.train(x, y, param);
 		lr.dump(model, f_model);
 
 		Object[] tobjects = readIn(f_test);
@@ -63,8 +62,6 @@ public class RegressionExample {
 			}
 			nodeArrayList.add(nodeArray);
 			yList.add(Double.valueOf(items[0]));
-			if (c++ > 1000)
-				break;
 		}
 		br.close();
 		
