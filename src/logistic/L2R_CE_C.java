@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import common.FeatureNode;
+import common.Parameter;
 import optimizer.lbfgs.LBFGS;
 import optimizer.lbfgs.LBFGS.ExceptionWithIflag;
 
@@ -64,12 +66,6 @@ public class L2R_CE_C implements Classifier {
 			bw.write(sb.toString().replaceFirst(" ", "") + "\r\n");
 		}
 		bw.close();
-	}
-
-	@Override
-	public Model load(String filePath) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	private static Model train_one(FeatureNode[][] nodes, double[] y, Parameter param) throws Exception {

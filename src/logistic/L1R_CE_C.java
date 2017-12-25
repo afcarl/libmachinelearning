@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import common.FeatureNode;
+import common.Parameter;
 import optimizer.lbfgs.LBFGS;
 import optimizer.lbfgs.LBFGS.ExceptionWithIflag;
 
@@ -132,12 +134,6 @@ public class L1R_CE_C implements Classifier {
 			}
 		}
 		return label_max;
-	}
-
-	@Override
-	public Model load(String filePath) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

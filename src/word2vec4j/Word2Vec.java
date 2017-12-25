@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 词向量训练(跟c版本的是一样的)
- * @author jiangwen
+ * @author J.
  *
  */
 public class Word2Vec {
@@ -415,8 +415,8 @@ public class Word2Vec {
 		bw.close();
 	}
 	
-	private void trainParagraphModel() {
-		Paragraph2Vec paragraph2vec = new Paragraph2Vec();
+	public void trainParagraphModel(String trainFile, String modelFile) {
+		Paragraph2Vec paragraph2vec = new Paragraph2Vec(trainFile, modelFile);
 		paragraph2vec.setExpTable(expTable);
 		paragraph2vec.setSyn0(syn0);
 		paragraph2vec.setSyn1(syn1);
@@ -445,12 +445,12 @@ public class Word2Vec {
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-		Word2Vec word2vec = new Word2Vec();
-		word2vec.init();
-		word2vec.trainModel();
-		System.out.println("word2vec train done ................................");
-		word2vec.trainParagraphModel();
-		System.out.println("para2vec train done ................................");
+//		Word2Vec word2vec = new Word2Vec();
+//		word2vec.init();
+//		word2vec.trainModel();
+//		System.out.println("word2vec train done ................................");
+//		word2vec.trainParagraphModel();
+//		System.out.println("para2vec train done ................................");
 	}
 }
 

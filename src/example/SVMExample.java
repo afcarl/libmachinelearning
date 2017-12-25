@@ -2,6 +2,8 @@ package example;
 
 import java.io.IOException;
 
+import common.FeatureNode;
+
 import svm.SVMModel;
 import svm.SVMParameter;
 import svm.SVM_dual;
@@ -9,12 +11,22 @@ import libsvm.svm_model;
 import libsvm.svm_node;
 import libsvm.svm_parameter;
 import libsvm.svm_problem;
-import logistic.FeatureNode;
 
+/**
+ * 对比libsvm Linear Kernel的效果
+ * train one svm
+ * 测试准确率 : 0.8518518518518519
+ * optimization finished, #iter = 555
+ * nu = 0.3636883201231288
+ * obj = -47.23945210918802, rho = -0.9862072311222366
+ * nSV = 103, nBSV = 91
+ * Total nSV = 103
+ * 测试准确率 : 0.8518518518518519
+ * @author J.
+ *
+ */
 public class SVMExample {
 //	private String f_train = "D://projectdata//libself//mnist.scale.train";
-//	private String f_test = "D://projectdata//libself//mnist.scale.test";
-//	private String f_model = "D://projectdata//libself//mnist.scale.model";
 	private String f_train = "D:/projectdata/libself/heart_scale.txt";
 	
 	public void classify() throws IOException {
@@ -47,6 +59,10 @@ public class SVMExample {
 		System.out.println("测试准确率 : " + (correct / (double) x1.length));
 	}
 	
+	/**
+	 * libsvm分类效果
+	 * @throws IOException
+	 */
 	public void libsvmClassify() throws IOException {
 		DataReader dataReader = new DataReader();
 		Object[] objects = dataReader.readIn(f_train);

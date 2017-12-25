@@ -1,4 +1,4 @@
-package logistic;
+package regression;
 
 import common.SolverType;
 

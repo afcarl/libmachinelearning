@@ -15,7 +15,7 @@ import java.util.Map.Entry;
 
 /**
  * 句子向量训练部分
- * @author jiangwen
+ * @author J.
  *
  */
 public class Paragraph2Vec {
@@ -50,13 +50,15 @@ public class Paragraph2Vec {
 	//向量维数
 	private int layerSize;
 	
+	private String trainFile = null;
 	//模型文件
-	private String modelFile = Constants.MODEL_FILE;
+	private String modelFile = null;
 	
 	public Paragraph2Vec() {
 	}
 	
-	public Paragraph2Vec(String modelFile) {
+	public Paragraph2Vec(String trainFile, String modelFile) {
+		this.trainFile = trainFile;
 		this.modelFile = modelFile;
 	}
 	
@@ -191,8 +193,8 @@ public class Paragraph2Vec {
 		syn1new = new float[layerSize];
 		neu1e = new float[layerSize];
 
-		BufferedReader br = new BufferedReader(new FileReader(Constants.PARA_TRAIN_FILE));
-		BufferedWriter bw = new BufferedWriter(new FileWriter(Constants.PARA_MODEL_FILE));
+		BufferedReader br = new BufferedReader(new FileReader(this.trainFile));
+		BufferedWriter bw = new BufferedWriter(new FileWriter(this.modelFile));
 		int counter = 0;
 		String line = null;
 		while (null != (line = br.readLine())) {

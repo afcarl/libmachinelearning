@@ -12,7 +12,7 @@ import optimizer.smo.SVM;
 
 /**
  * SVM对偶问题,使用SMO算法求解,没有使用QP方法,因为对内存和时间要求较高
- * 采用one-vs-all的方法训练N个模型,效果不好,比libsvm差了很多,修改为one-vs-one的vote方法
+ * 采用one-vs-one的vote方法进行多个二分类模型整合
  * @author J.
  *
  */
@@ -79,7 +79,6 @@ public class SVM_dual {
 		return maxLable;
 	}
 	
-	//采用one-vs-all的方法训练N个模型,效果不好,比libsvm差了很多,修改为one-vs-one的vote方法
 //	public SVMModel train(SvmNode[][] nodes, int[] y, SVMParameter parameter) {
 //		SVMModel svmModel = null;
 //		Set<Integer> yset = new HashSet<Integer>();

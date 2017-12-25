@@ -1,16 +1,15 @@
-package logistic;
+package regression;
 
 import common.FeatureNode;
 import common.Parameter;
 import common.SolverType;
 
-
-public class Classification {
-	public static Classifier getInstance(Parameter param) {
-		if (param.type == SolverType.L2R_CE_C)
-			return new L2R_CE_C();
-		if (param.type == SolverType.L1R_CE_C)
-			return new L1R_CE_C();
+public class Regression {
+	public static Regressioner getInstance(Parameter param) {
+		if (param.type == SolverType.MSE_LR)
+			return new MSE_LR();
+		if (param.type == SolverType.RIDGE_LR)
+			return new RIDGE_LR();
 		return null;
 	}
 

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import logistic.FeatureNode;
+import common.FeatureNode;
 
 public class DataReader {
 

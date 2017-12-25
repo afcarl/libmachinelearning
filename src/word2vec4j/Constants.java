@@ -2,16 +2,16 @@ package word2vec4j;
 
 public class Constants {
 	//训练文件
-	public static final String TRAIN_FILE = "D:\\data\\cluster\\phone\\raw\\raw.data.cut";
+	public static final String TRAIN_FILE = "";
 	//模型文件
-	public static final String MODEL_FILE = "D:\\data\\cluster\\phone\\vectors.bin";
+	public static final String MODEL_FILE = "";
 
 	public static final int EXP_TABLE_SIZE = 1000;
 	
 	public static final int MAX_EXP = 6;
 	
 	//一个词的最大长度限制
-	public static final int MAX_STRING = 20;
+	public static final int MAX_STRING = 100;
 	
 	public static final int VOCAB_HASH_SIZE = 30000000;
 	
